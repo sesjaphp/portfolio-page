@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<htmk>
+<html>
 <head>
     <link rel="stylesheet" href="/css/index.css">
     <meta charset="utf-8">
@@ -7,8 +7,41 @@
     <script src="https://kit.fontawesome.com/56f3f17dd5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div>
-        
-    </div>
+    <header class="hero">
+        <div class="container">
+            <h1 class="reveal">
+                UI & Front-end developer.<br>
+                Reverse engineer.
+            </h1>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2 class="reveal">
+                description<br>
+                something more
+            </h2>
+        </div>
+    </section>
 </body>
-</htmk>
+<script>
+    const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // observer.unobserve(entry.target);
+            }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+</html>
